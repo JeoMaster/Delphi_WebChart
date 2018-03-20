@@ -52,9 +52,11 @@ contains
   Charts.DataSet in 'Charts.DataSet.pas',
   Charts.LineStacked in 'Charts.LineStacked.pas',
   Charts.Pie in 'Charts.Pie.pas',
-  Rows.Divv in 'Rows.Divv.pas',
-  Charts.Bar.Horizontal in 'Charts.Bar.Horizontal.pas',
+  {$IFDEF FULL}
   Table in 'Table.pas',
-  Table.DataSet in 'Table.DataSet.pas';
+  Table.DataSet in 'Table.DataSet.pas',
+  Rows.Divv in 'Rows.Divv.pas',
+  {$ENDIF}
+  Charts.Bar.Horizontal in 'Charts.Bar.Horizontal.pas';
 
 end.
