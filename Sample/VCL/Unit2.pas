@@ -48,11 +48,8 @@ type
     SpeedButton6: TSpeedButton;
     SpeedButton7: TSpeedButton;
     SpeedButton2: TSpeedButton;
-    SpeedButton8: TSpeedButton;
-    SpeedButton9: TSpeedButton;
     SpeedButton5: TSpeedButton;
     WebCharts1: TWebCharts;
-    Button5: TButton;
     ClientDataSet5: TClientDataSet;
     ClientDataSet5SpeciesNo: TFloatField;
     ClientDataSet5Category: TStringField;
@@ -60,6 +57,7 @@ type
     ClientDataSet5SpeciesName: TStringField;
     ClientDataSet5Lengthcm: TFloatField;
     ClientDataSet5Length_In: TFloatField;
+    SpeedButton1: TSpeedButton;
     procedure SpeedButton3Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
@@ -72,9 +70,9 @@ type
     procedure SpeedButton8Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
-    procedure SpeedButton9Click(Sender: TObject);
     procedure SpeedButton10Click(Sender: TObject);
     procedure Button5Click(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -312,6 +310,162 @@ begin
     .&End
   .WebBrowser(WebBrowser1)
   .Generated;
+end;
+
+procedure TForm2.SpeedButton1Click(Sender: TObject);
+begin
+  PageControl1.ActivePageIndex := 0;
+  WebCharts1
+    .NewProject
+
+    .Rows
+      .Title
+        .Configuracoes
+          .H3('Vendas Mensal')
+        .&End
+      .&End
+    .&End
+
+    .Jumpline
+    .Jumpline
+
+    .Rows
+      .Title
+        .Configuracoes
+          .H4('Grafico de Barras')
+        .&End
+      .&End
+    .&End
+
+    .Charts
+      .Bar
+        .Attributes
+          .Name('barras1')
+          .Title('Meu Grafico de Barras')
+          .ColSpan(12)
+          .Heigth(80)
+          .DataSet
+            .DataSet(ClientDataSet1)
+            .textLabel('Filial 1')
+            //.BackgroundColor('23,25,124')
+          .&End
+          .DataSet
+            .DataSet(ClientDataSet2)
+            .textLabel('Filial 2')
+            //.BackgroundColor('123,125,124')
+          .&End
+        .&End
+      .&End
+    .&End
+
+    .Jumpline
+    .Rows
+      .Title
+        .Configuracoes
+          .H4('Entradas / Saidas')
+        .&End
+      .&End
+    .&End
+
+    .Jumpline
+
+    .Rows
+      .Tag
+        .Add(
+          WebCharts1
+            .ContinuosProject
+            .Charts
+              .Doughnut
+                .Attributes
+                  .Name('d1')
+                  .Title('Meu Grafico de Barras')
+                  .ColSpan(4)
+                  .DataSet
+                    .DataSet(ClientDataSet3)
+                    .textLabel('Filial 1')
+                    //.BackgroundColor('23,25,124')
+                  .&End
+                .&End
+              .&End
+            .&End
+            .HTML
+        )
+      .&End
+
+      .Tag
+        .Add(
+          WebCharts1
+            .ContinuosProject
+            .Charts
+              .Doughnut
+                .Attributes
+                  .Name('d2')
+                  .Title('Meu Grafico de Barras')
+                  .ColSpan(4)
+                  .DataSet
+                    .DataSet(ClientDataSet4)
+                    .textLabel('Filial 1')
+                    //.BackgroundColor('23,25,124')
+                  .&End
+                .&End
+              .&End
+            .&End
+            .HTML
+        )
+      .&End
+
+      .Tag
+        .Add(
+          WebCharts1
+            .ContinuosProject
+            .Charts
+              .Doughnut
+                .Attributes
+                  .Name('d3')
+                  .Title('Meu Grafico de Barras')
+                  .ColSpan(4)
+                  .DataSet
+                    .DataSet(ClientDataSet3)
+                    .textLabel('Filial 1')
+                    //.BackgroundColor('23,25,124')
+                  .&End
+                .&End
+              .&End
+            .&End
+            .HTML
+        )
+      .&End
+    .&End
+
+    .Jumpline
+
+    .Rows
+      .Tag
+        .Add(
+          WebCharts1
+            .ContinuosProject
+            .Charts
+              .Lines
+                .Attributes
+                  .Name('l3')
+                  .Title('Meu Grafico de Barras')
+                  .ColSpan(12)
+                  .Heigth(55)
+                  .DataSet
+                    .DataSet(ClientDataSet3)
+                    .textLabel('Filial 1')
+                    .Fill('false')
+                  .&End
+                .&End
+              .&End
+            .&End
+            .HTML
+        )
+      .&End
+    .&End
+
+    .WebBrowser(WebBrowser1)
+    .Generated;
 end;
 
 procedure TForm2.SpeedButton2Click(Sender: TObject);
@@ -621,237 +775,6 @@ begin
           .&End
         .&End
       .&End
-      .Jumpline
-      .Jumpline
-
-      .Table
-        .TableClass
-          .tableSm
-          .tableHover
-        .EndTableClass
-        .DataSet
-          .DataSet(ClientDataSet5)
-        .&End
-      .&End
-
-
-    .WebBrowser(WebBrowser1)
-    .Generated;
-end;
-
-procedure TForm2.SpeedButton9Click(Sender: TObject);
-begin
-  PageControl1.ActivePageIndex := 0;
-  WebCharts1
-    .AddResource('<link href="css/green.css" rel="stylesheet">')
-    .AddResource('<link href="css/custom.min.css" rel="stylesheet">')
-    .NewProject
-
-      //Criando uma Linha com 6 Colunas e Adicionando conteudo HTML em cada uma
-      //dessas colunas
-      .Rows
-        ._Div
-          .ColSpan(2)
-          .Add('<span class="count_top">' +
-               '  <i class="fas fa-user"></i> Total Users ' +
-               '</span>' +
-               '<div class="count" style="font-size:  40px;">2500</div>' +
-               '<span class="count_bottom"> ' +
-               '  <i class="green"><i class="fa fa-angle-up"></i>4% </i> From last Week ' +
-               '</span> ')
-        .&End
-        ._Div
-          .ColSpan(2)
-          .Add('<span class="count_top">' +
-               '  <i class="fa fa-clock-o"></i> Average Time ' +
-               '</span>' +
-               '<div class="count" style="font-size:  40px;">123</div>' +
-               '<span class="count_bottom"> ' +
-               '  <i class="green"><i class="fa fa-angle-up"></i>3% </i> From last Week' +
-               '</span> ')
-        .&End
-        ._Div
-          .ColSpan(2)
-          .Add('<span class="count_top">' +
-               '  <i class="fa fa-user"></i> Total Males ' +
-               '</span>' +
-               '<div class="count" style="font-size: 40px; color: #1ABB9C;">2,500</div>' +
-               '<span class="count_bottom"> ' +
-               '  <i class="green"><i class="fa fa-angle-up"></i>34% </i> From last Week ' +
-               '</span> ')
-        .&End
-        ._Div
-          .ColSpan(2)
-          .Add('<span class="count_top">' +
-               '  <i class="fa fa-user"></i> Total Females ' +
-               '</span>' +
-               '<div class="count" style="font-size:  40px;">4,567</div>' +
-               '<span class="count_bottom"> ' +
-               '  <i class="red"><i class="fa fa-angle-down"></i>12% </i> From last Week ' +
-               '</span> ')
-        .&End
-        ._Div
-          .ColSpan(2)
-          .Add('<span class="count_top">' +
-               '  <i class="fa fa-user"></i> Total Collections ' +
-               '</span>' +
-               '<div class="count" style="font-size:  40px;">2,315</div>' +
-               '<span class="count_bottom"> ' +
-               '  <i class="green"><i class="fa fa-angle-up"></i>34% </i> From last Week ' +
-               '</span> ')
-        .&End
-        ._Div
-          .ColSpan(2)
-          .Add('<span class="count_top">' +
-               '  <i class="fa fa-user"></i> Total Connections ' +
-               '</span>' +
-               '<div class="count" style="font-size:  40px;">7,325</div>' +
-               '<span class="count_bottom"> ' +
-               '  <i class="green"><i class="fa fa-angle-up"></i>54% </i> From last Week ' +
-               '</span> ')
-        .&End
-      .&End
-
-      //Pulando Linha
-      .Jumpline
-
-      //Adicionando uma nova linha com um gráfico LineStack e Barras Horizontal
-      .Rows
-
-        //Adicionando Grafico LineStacked
-        .Tag
-          .Add(
-            WebCharts1
-              .ContinuosProject
-                .Charts
-                  .LineStacked
-                    .Attributes
-                      .Name('linestacked1')
-                      .ColSpan(8)
-                      .Heigth(150)
-                      .Title('Network Activities Graph title sub-title')
-                      .DataSet
-                        .textLabel('Meu DataSet 1')
-                        .DataSet(ClientDataSet1)
-                        .BackgroundColor('227,233,235')
-                        .BorderColor('227,233,235')
-                      .&End
-                      .DataSet
-                        .textLabel('Meu DataSet 2')
-                        .DataSet(ClientDataSet2)
-                        .BackgroundColor('26,187,156')
-                        .BorderColor('26,187,156')
-                      .&End
-                    .&End
-                  .&End
-                .&End
-                .HTML
-          )
-        .&End
-
-        //Adicionando Grafico Barras Horizontal
-        .Tag
-          .Add(
-            WebCharts1
-              .ContinuosProject
-                .Charts
-                  .BarHorizontal
-                    .Attributes
-                      .Name('horizontabar1')
-                      .ColSpan(4)
-                      .Heigth(295)
-                      .Title('Top Campaign Performance')
-                      .DataSet
-                        .textLabel('Meu DataSet 1')
-                        .DataSet(ClientDataSet3)
-                        .BackgroundColor('26,187,156')
-                        .BorderColor('26,187,156')
-                      .&End
-                    .&End
-                  .&End
-                .&End
-                .HTML
-          )
-        .&End
-      .&End
-
-      .Rows
-        .Tag
-          .Add(
-            WebCharts1
-              .ContinuosProject
-                .Charts
-                  .BarHorizontal
-                    .Attributes
-                      .Name('horizontabar2')
-                      .ColSpan(4)
-                      .Heigth(295)
-                      .Title('App Usage across versions')
-                      .DataSet
-                        .textLabel('Meu DataSet 1')
-                        .DataSet(ClientDataSet3)
-                        .BackgroundColor('26,187,156')
-                        .BorderColor('26,187,156')
-                      .&End
-                    .&End
-                  .&End
-                .&End
-                .HTML
-          )
-        .&End
-
-        .Tag
-          .Add(
-            WebCharts1
-              .ContinuosProject
-                .Charts
-                  .Doughnut
-                    .Attributes
-                      .Name('Doughnut')
-                      .ColSpan(4)
-                      .Heigth(295)
-                      .Title('Device Usage')
-                      .DataSet
-                        .textLabel('Meu DataSet 1')
-                        .DataSet(ClientDataSet4)
-                        .BackgroundColor('26,187,156')
-                        .BorderColor('227,233,235')
-                      .&End
-                    .&End
-                  .&End
-                .&End
-                .HTML
-          )
-        .&End
-
-        .Tag
-          .Add(
-            WebCharts1
-              .ContinuosProject
-                .Charts
-                  .Doughnut
-                    .Attributes
-                      .Name('Pie1')
-                      .ColSpan(4)
-                      .Heigth(295)
-                      .Title('Device Usage')
-                      .DataSet
-                        .textLabel('Meu DataSet 1')
-                        .DataSet(ClientDataSet3)
-                        .BackgroundColor('227,233,235')
-                        .BorderColor('26,187,156')
-                      .&End
-                    .&End
-                  .&End
-                .&End
-                .HTML
-          )
-        .&End
-
-
-      .&End
-
-
     .WebBrowser(WebBrowser1)
     .Generated;
 end;

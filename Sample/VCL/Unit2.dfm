@@ -265,10 +265,11 @@ object Form2: TForm2
       ParentBackground = False
       TabOrder = 1
       object SpeedButton3: TSpeedButton
-        Left = -15
+        Left = 0
         Top = 0
-        Width = 200
+        Width = 185
         Height = 60
+        Align = alTop
         BiDiMode = bdLeftToRight
         Caption = 'Bars'
         Flat = True
@@ -281,12 +282,15 @@ object Form2: TForm2
         ParentFont = False
         ParentBiDiMode = False
         OnClick = SpeedButton3Click
+        ExplicitLeft = -15
+        ExplicitWidth = 200
       end
       object SpeedButton10: TSpeedButton
-        Left = -15
-        Top = 62
-        Width = 200
+        Left = 0
+        Top = 60
+        Width = 185
         Height = 60
+        Align = alTop
         BiDiMode = bdLeftToRight
         Caption = 'Horizontal Bar'
         Flat = True
@@ -299,12 +303,16 @@ object Form2: TForm2
         ParentFont = False
         ParentBiDiMode = False
         OnClick = SpeedButton10Click
+        ExplicitLeft = -15
+        ExplicitTop = 62
+        ExplicitWidth = 200
       end
       object SpeedButton4: TSpeedButton
-        Left = -15
-        Top = 124
-        Width = 200
+        Left = 0
+        Top = 120
+        Width = 185
         Height = 60
+        Align = alTop
         Caption = 'Lines'
         Flat = True
         Font.Charset = DEFAULT_CHARSET
@@ -314,12 +322,16 @@ object Form2: TForm2
         Font.Style = []
         ParentFont = False
         OnClick = SpeedButton4Click
+        ExplicitLeft = -15
+        ExplicitTop = 124
+        ExplicitWidth = 200
       end
       object SpeedButton6: TSpeedButton
-        Left = -15
-        Top = 186
-        Width = 200
+        Left = 0
+        Top = 180
+        Width = 185
         Height = 60
+        Align = alTop
         Caption = 'LineStacked'
         Flat = True
         Font.Charset = DEFAULT_CHARSET
@@ -329,12 +341,16 @@ object Form2: TForm2
         Font.Style = []
         ParentFont = False
         OnClick = SpeedButton6Click
+        ExplicitLeft = -15
+        ExplicitTop = 186
+        ExplicitWidth = 200
       end
       object SpeedButton7: TSpeedButton
-        Left = -15
-        Top = 248
-        Width = 200
+        Left = 0
+        Top = 240
+        Width = 185
         Height = 60
+        Align = alTop
         Caption = 'Pie'
         Flat = True
         Font.Charset = DEFAULT_CHARSET
@@ -344,12 +360,16 @@ object Form2: TForm2
         Font.Style = []
         ParentFont = False
         OnClick = SpeedButton7Click
+        ExplicitLeft = -15
+        ExplicitTop = 248
+        ExplicitWidth = 200
       end
       object SpeedButton2: TSpeedButton
-        Left = -15
-        Top = 310
-        Width = 200
+        Left = 0
+        Top = 300
+        Width = 185
         Height = 60
+        Align = alTop
         Caption = 'Doughnut'
         Flat = True
         Font.Charset = DEFAULT_CHARSET
@@ -359,36 +379,9 @@ object Form2: TForm2
         Font.Style = []
         ParentFont = False
         OnClick = SpeedButton2Click
-      end
-      object SpeedButton8: TSpeedButton
-        Left = -17
-        Top = 368
-        Width = 200
-        Height = 60
-        Caption = 'Dashboard'
-        Flat = True
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        OnClick = SpeedButton8Click
-      end
-      object SpeedButton9: TSpeedButton
-        Left = -15
-        Top = 434
-        Width = 200
-        Height = 60
-        Caption = 'Dashboard 2'
-        Flat = True
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        OnClick = SpeedButton9Click
+        ExplicitLeft = -15
+        ExplicitTop = 310
+        ExplicitWidth = 200
       end
       object SpeedButton5: TSpeedButton
         Left = 0
@@ -408,14 +401,23 @@ object Form2: TForm2
         ExplicitTop = 496
         ExplicitWidth = 200
       end
-      object Button5: TButton
-        Left = 56
-        Top = 528
-        Width = 75
-        Height = 25
-        Caption = 'Button5'
-        TabOrder = 0
-        OnClick = Button5Click
+      object SpeedButton1: TSpeedButton
+        Left = 0
+        Top = 360
+        Width = 185
+        Height = 60
+        Align = alTop
+        Caption = 'Dashboard'
+        Flat = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        OnClick = SpeedButton1Click
+        ExplicitTop = 376
+        ExplicitWidth = 200
       end
     end
   end
