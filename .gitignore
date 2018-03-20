@@ -34,7 +34,6 @@
 *.so
 *.apk
 *.drc
-*.map
 *.rsm
 *.tds
 *.lib
