@@ -39,7 +39,7 @@
 *.dres
 *.rsm
 *.tds
-*.dcu
+*.pas
 *.lib
 *.a
 *.o
