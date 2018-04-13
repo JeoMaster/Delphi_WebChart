@@ -8,27 +8,26 @@ uses
 Type
   TModelHTMLRowsTitle = class(TInterfacedObject, iModelHTMLRowsTitle)
     private
-      [weak]
       FParent : IModelHTMLRows;
-      FConfig : IModelRowsTitleConfig<iModelHTMLRowsTitle>;
+      FConfig : IModelRowsTitleConfig;
     public
       constructor Create(Parent : IModelHTMLRows);
       destructor Destroy; override;
       class function New(Parent : IModelHTMLRows) : iModelHTMLRowsTitle;
       function HTML(Value : String) : iModelHTMLRowsTitle; overload;
       function HTML : String; overload;
-      function Configuracoes : IModelRowsTitleConfig<iModelHTMLRowsTitle>;
+      function Configuracoes : IModelRowsTitleConfig;
       function &End : IModelHTMLRows;
   end;
 
 implementation
 
 uses
-  Rows.Title.Config, StrUtils;
+  Rows.Title.Config, StrUtils, Injection;
 
 { TModelHTMLRowsTitle }
 
-function TModelHTMLRowsTitle.Configuracoes: IModelRowsTitleConfig<iModelHTMLRowsTitle>;
+function TModelHTMLRowsTitle.Configuracoes: IModelRowsTitleConfig;
 begin
   Result := FConfig;
 end;
@@ -52,8 +51,8 @@ end;
 
 constructor TModelHTMLRowsTitle.Create(Parent : IModelHTMLRows);
 begin
-  FParent := Parent;
-  FConfig := TModelHTMLRowsTitleConfig<iModelHTMLRowsTitle>.New(Self);
+  TInjection.Weak(@FParent, Parent);
+  FConfig := TModelHTMLRowsTitleConfig.New(Self);
 end;
 
 destructor TModelHTMLRowsTitle.Destroy;

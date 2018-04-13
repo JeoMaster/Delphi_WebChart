@@ -1,7 +1,6 @@
 package TBGWebCharts;
 
 {$R *.res}
-{$I TBGWebCharts.inc}
 {$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
 {$ALIGN 8}
 {$ASSERTIONS ON}
@@ -28,7 +27,6 @@ package TBGWebCharts;
 {$ENDIF IMPLICITBUILDING}
 {$IMPLICITBUILD ON}
 
-
 requires
   rtl,
   dbrtl,
@@ -53,11 +51,17 @@ contains
   Charts.DataSet in 'Charts.DataSet.pas',
   Charts.LineStacked in 'Charts.LineStacked.pas',
   Charts.Pie in 'Charts.Pie.pas',
-  {$IFDEF FULL}
-  Table in 'Table.pas',
-  Table.DataSet in 'Table.DataSet.pas',
+  Charts.Bar.Horizontal in 'Charts.Bar.Horizontal.pas',
   Rows.Divv in 'Rows.Divv.pas',
-  {$ENDIF}
-  Charts.Bar.Horizontal in 'Charts.Bar.Horizontal.pas';
+  Table.DataSet in 'Table.DataSet.pas',
+  Table in 'Table.pas',
+  Cards in 'Cards.pas',
+  Color in 'Color.pas',
+  Cards.DataSet in 'Cards.DataSet.pas',
+  Injection in 'Injection.pas',
+  Image in 'Image.pas',
+  Image.DataSet in 'Image.DataSet.pas',
+  Image.Classes in 'Image.Classes.pas',
+  Rows.P in 'Rows.P.pas';
 
 end.
